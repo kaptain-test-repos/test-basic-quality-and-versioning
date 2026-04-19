@@ -3,7 +3,7 @@ set -euo pipefail
 # Hook: postBuild — final validation
 
 errors=0
-assert_set() { if [[ -z "${!1:-}" ]]; then echo "FAIL: $1 should be set" >&2; ((errors++)); fi; }
+assert_set() { if [[ -z "${!1:-}" ]]; then echo "FAIL: $1 should be set" >&2; errors=$((errors + 1)); fi; }
 
 assert_set REPOSITORY_NAME
 assert_set CURRENT_BRANCH
