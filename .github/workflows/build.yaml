@@ -1,0 +1,15 @@
+name: CI
+
+on:
+  push:
+    branches: [main, release/1.x]
+  pull_request:
+    branches: [main, release/1.x]
+
+jobs:
+  build:
+    uses: kube-kaptain/buildon-github-actions/.github/workflows/basic-quality-and-versioning.yaml@dns-friendly-versions-and-strip-prefix
+    permissions:
+      contents: write
+      packages: write
+      checks: write
