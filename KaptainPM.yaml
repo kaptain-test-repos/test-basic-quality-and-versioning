@@ -1,0 +1,17 @@
+apiVersion: kaptain.org/1.13
+kind: basic-quality-and-versioning
+
+spec:
+  global:
+    projectName:
+      stripRepositoryNamePrefix: test
+    tokens:
+      delimiterStyle: shell
+      nameStyle: PascalCase
+      valueTrailingNewline: always-strip-one-newline
+  main:
+    hooks:
+      preBuild: test-hooks/pre-build.bash
+      preTaggingTests: test-hooks/pre-tagging-tests.bash
+      postVersionsAndNaming: test-hooks/post-versions-and-naming.bash
+      postBuild: test-hooks/post-build.bash
